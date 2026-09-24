@@ -74,20 +74,26 @@
         <figure class="featured">
           <figcaption class="featured__label">Featured Work</figcaption>
           <div class="compare" style="--pos:50%">
-            <img class="compare__img" src="images/after-1.jpg" alt="After: new metal roof">
+            <img class="compare__img compare__after" src="images/after-1.jpg" alt="After">
             <div class="compare__before">
-              <img class="compare__img" src="images/before-1.jpg" alt="Before: worn shingle roof">
+              <img class="compare__img" src="images/before-1.jpg" alt="Before">
             </div>
             <span class="compare__tag compare__tag--before">Before</span>
             <span class="compare__tag compare__tag--after">After</span>
             <div class="compare__handle" aria-hidden="true"><span></span></div>
             <input class="compare__range" type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after">
           </div>
+          <div class="featured__dots" role="tablist" aria-label="Featured projects">
+            <button class="featured__dot is-active" data-before="images/before-1.jpg" data-after="images/after-1.jpg" aria-label="Project 1"></button>
+            <button class="featured__dot" data-before="images/before-2.jpg" data-after="images/after-2.jpg" aria-label="Project 2"></button>
+            <button class="featured__dot" data-before="images/before-3.jpg" data-after="images/after-3.jpg" aria-label="Project 3"></button>
+          </div>
         </figure>
       </div>
 
       <!-- Contact form (GoHighLevel embed) -->
       <div class="hero__form">
+        <div class="hero__form-scroll">
         <iframe
           src="https://api.leadconnectorhq.com/widget/form/aZnNFnmwokjI14SwKtnE"
           style="width:100%;height:100%;border:none;border-radius:8px"
@@ -107,6 +113,7 @@
           data-cookie-consent-provider="auto"
           title="ADs Form">
         </iframe>
+        </div>
       </div>
     </div>
   </header>
@@ -118,11 +125,14 @@
         <h2 class="section__title"><span class="light">Recent</span> Work</h2>
         <div class="work__grid">
           <figure class="work__card"><img src="images/work-tile-canal.jpg" alt="Red tile roof on a canal home" loading="lazy"></figure>
-          <figure class="work__card"><img src="images/work-shingle-home.jpg" alt="Blue-grey shingle roof" loading="lazy"></figure>
+          <figure class="work__card"><img src="images/work-metal-white.jpg" alt="White standing seam metal roof" loading="lazy"></figure>
+          <figure class="work__card"><img src="images/work-shingle-grey.jpg" alt="Light grey shingle roof" loading="lazy"></figure>
           <figure class="work__card"><img src="images/work-metal-canal.jpg" alt="Dark metal roof on a canal home" loading="lazy"></figure>
-          <figure class="work__card"><img src="images/work-metal-estate.jpg" alt="Silver metal roof" loading="lazy"></figure>
           <figure class="work__card"><img src="images/work-tile-pool.jpg" alt="Tile roof with pool" loading="lazy"></figure>
+          <figure class="work__card"><img src="images/work-metal-chimney.jpg" alt="Metal roof with chimney" loading="lazy"></figure>
           <figure class="work__card"><img src="images/work-shingle-canal.jpg" alt="Grey shingle roof on a waterfront home" loading="lazy"></figure>
+          <figure class="work__card"><img src="images/work-metal-estate.jpg" alt="Silver metal roof" loading="lazy"></figure>
+          <figure class="work__card"><img src="images/work-shingle-home.jpg" alt="Blue-grey shingle roof" loading="lazy"></figure>
         </div>
       </div>
     </section>
@@ -177,6 +187,27 @@
         el.style.setProperty('--pos', range.value + '%');
       });
     });
+    // Featured project switcher
+    var fig = document.querySelector('.featured');
+    if (fig) {
+      var cmp = fig.querySelector('.compare');
+      var afterImg = fig.querySelector('.compare__after');
+      var beforeImg = fig.querySelector('.compare__before img');
+      var rng = fig.querySelector('.compare__range');
+      fig.querySelectorAll('.featured__dot').forEach(function (dot) {
+        dot.addEventListener('click', function () {
+          fig.querySelectorAll('.featured__dot').forEach(function (d) { d.classList.remove('is-active'); });
+          dot.classList.add('is-active');
+          cmp.classList.add('is-switching');
+          setTimeout(function () {
+            afterImg.src = dot.dataset.after;
+            beforeImg.src = dot.dataset.before;
+            rng.value = 50; cmp.style.setProperty('--pos', '50%');
+            cmp.classList.remove('is-switching');
+          }, 220);
+        });
+      });
+    }
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
