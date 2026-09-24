@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vega Roofing Solutions | Cape Coral, FL</title>
+  <meta name="description" content="Replacements, repairs, and inspections across Southwest Florida. Licensed & insured, BBB A+ rated, family-owned.">
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ============ MOVING BANNER (infinite loop) ============ -->
+  <div class="ticker" aria-label="Licensed & Insured, BBB A+ Rated, Family-Owned, 24/7 Emergency Service, 5-Year Replacement Warranty, Free Quotes, Serving Southwest Florida">
+    <div class="ticker__track" aria-hidden="true">
+      <!-- Group 1 -->
+      <ul class="ticker__group">
+        <li>Licensed &amp; Insured</li>
+        <li>BBB A+ Rated</li>
+        <li>Family-Owned</li>
+        <li>24/7 Emergency Service</li>
+        <li>5-Year Replacement Warranty</li>
+        <li>Free Quotes</li>
+        <li>Serving Southwest Florida</li>
+      </ul>
+      <!-- Group 2 (duplicate for seamless loop) -->
+      <ul class="ticker__group">
+        <li>Licensed &amp; Insured</li>
+        <li>BBB A+ Rated</li>
+        <li>Family-Owned</li>
+        <li>24/7 Emergency Service</li>
+        <li>5-Year Replacement Warranty</li>
+        <li>Free Quotes</li>
+        <li>Serving Southwest Florida</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="hero__bg" aria-hidden="true"></div>
+
+    <!-- Navigation: only Home is a link for now; other items are display + hover only -->
+    <nav class="nav" aria-label="Main">
+      <a href="#" class="nav__logo" aria-label="Vega Roofing Solutions home">
+        <img src="images/logo.png" alt="Vega Roofing Solutions" width="150" height="150">
+      </a>
+      <ul class="nav__menu">
+        <li><a href="#" class="nav__item is-active">Home</a></li>
+        <li><span class="nav__item" aria-disabled="true">Services</span></li>
+        <li><span class="nav__item" aria-disabled="true">Areas</span></li>
+        <li><span class="nav__item" aria-disabled="true">Reviews</span></li>
+      </ul>
+      <span class="nav__cta" aria-disabled="true">Request A Quote</span>
+    </nav>
+
+    <div class="hero__inner container">
+      <div class="hero__content">
+        <h1 class="hero__title">
+          <span class="hero__title-accent">A Roof You Don't</span>
+          Have To Think About
+        </h1>
+        <p class="hero__sub">Replacements, repairs, and inspections across Southwest Florida. Done right, and done cleanly.</p>
+
+        <div class="hero__buttons">
+          <span class="btn btn--light" aria-disabled="true">Get Started</span>
+          <span class="btn btn--outline" aria-disabled="true">See Our Services</span>
+        </div>
+
+        <!-- Featured Work: before/after slider (red box area) -->
+        <figure class="featured">
+          <figcaption class="featured__label">Featured Work</figcaption>
+          <div class="compare" style="--pos:50%">
+            <img class="compare__img" src="images/after-1.jpg" alt="After: new metal roof">
+            <div class="compare__before">
+              <img class="compare__img" src="images/before-1.jpg" alt="Before: worn shingle roof">
+            </div>
+            <span class="compare__tag compare__tag--before">Before</span>
+            <span class="compare__tag compare__tag--after">After</span>
+            <div class="compare__handle" aria-hidden="true"><span></span></div>
+            <input class="compare__range" type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after">
+          </div>
+        </figure>
+      </div>
+
+      <!-- Contact form (GoHighLevel embed) -->
+      <div class="hero__form">
+        <iframe
+          src="https://api.leadconnectorhq.com/widget/form/aZnNFnmwokjI14SwKtnE"
+          style="width:100%;height:100%;border:none;border-radius:8px"
+          id="inline-aZnNFnmwokjI14SwKtnE"
+          data-layout="{'id':'INLINE'}"
+          data-trigger-type="alwaysShow"
+          data-trigger-value=""
+          data-activation-type="alwaysActivated"
+          data-activation-value=""
+          data-deactivation-type="neverDeactivate"
+          data-deactivation-value=""
+          data-form-name="ADs Form"
+          data-height="1094"
+          data-layout-iframe-id="inline-aZnNFnmwokjI14SwKtnE"
+          data-form-id="aZnNFnmwokjI14SwKtnE"
+          data-cookie-consent="true"
+          data-cookie-consent-provider="auto"
+          title="ADs Form">
+        </iframe>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ RECENT WORK ============ -->
+    <section class="section work">
+      <div class="container">
+        <h2 class="section__title"><span class="light">Recent</span> Work</h2>
+        <div class="work__grid">
+          <figure class="work__card"><img src="images/work-tile-canal.jpg" alt="Red tile roof on a canal home" loading="lazy"></figure>
+          <figure class="work__card"><img src="images/work-shingle-home.jpg" alt="Blue-grey shingle roof" loading="lazy"></figure>
+          <figure class="work__card"><img src="images/work-metal-canal.jpg" alt="Dark metal roof on a canal home" loading="lazy"></figure>
+          <figure class="work__card"><img src="images/work-metal-estate.jpg" alt="Silver metal roof" loading="lazy"></figure>
+          <figure class="work__card"><img src="images/work-tile-pool.jpg" alt="Tile roof with pool" loading="lazy"></figure>
+          <figure class="work__card"><img src="images/work-shingle-canal.jpg" alt="Grey shingle roof on a waterfront home" loading="lazy"></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ REVIEWS ============ -->
+    <section class="section reviews">
+      <div class="container">
+        <h2 class="section__title"><span class="light">What homeowners</span> say</h2>
+        <div class="reviews__grid">
+          <blockquote class="review">
+            <p>&ldquo;Everything went well&hellip; excellent. Very professional and on time&hellip; cleaned up work area every day.&rdquo;</p>
+          </blockquote>
+          <blockquote class="review">
+            <p>&ldquo;Very well, he handled our needs great!&rdquo;</p>
+          </blockquote>
+          <blockquote class="review">
+            <p>&ldquo;Responsible, reliable, and professional in every aspect.&rdquo;</p>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="images/logo.png" alt="Vega Roofing Solutions" width="72" height="72">
+        <p>Florida Roofing Contractor License CCC1333297<br>Licensed &amp; Insured &middot; BBB A+ Rated</p>
+      </div>
+      <div class="footer__col">
+        <h3>Contact</h3>
+        <p>715 Northeast 19th Place<br>Cape Coral, Florida 33909</p>
+        <p>(239) 745-9187<br>admin@vegaroofingsolutions.com</p>
+      </div>
+      <div class="footer__col">
+        <h3>Hours</h3>
+        <p>Mon&ndash;Fri: 8am &ndash; 5pm<br>Sat: 8am &ndash; 2pm<br>Sun: Closed</p>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p>&copy; <span id="year">2026</span> Vega Roofing Solutions</p>
+    </div>
+  </footer>
+
+  <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+  <script>
+    // Before/after slider
+    document.querySelectorAll('.compare').forEach(function (el) {
+      var range = el.querySelector('.compare__range');
+      range.addEventListener('input', function () {
+        el.style.setProperty('--pos', range.value + '%');
+      });
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
