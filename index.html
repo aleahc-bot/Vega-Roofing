@@ -40,7 +40,7 @@
   </div>
 
   <!-- ============ HERO ============ -->
-  <header class="hero">
+  <header class="hero" id="home">
     <div class="hero__bg" aria-hidden="true"></div>
 
     <!-- Navigation: only Home is a link for now; other items are display + hover only -->
@@ -49,12 +49,12 @@
         <img src="images/logo.png" alt="Vega Roofing Solutions" width="150" height="150">
       </a>
       <ul class="nav__menu">
-        <li><a href="#" class="nav__item is-active">Home</a></li>
-        <li><span class="nav__item" aria-disabled="true">Services</span></li>
-        <li><span class="nav__item" aria-disabled="true">Areas</span></li>
-        <li><span class="nav__item" aria-disabled="true">Reviews</span></li>
+        <li><a href="#home" class="nav__item is-active" data-section="home">Home</a></li>
+        <li><a href="#services" class="nav__item" data-section="services">Services</a></li>
+        <li><a href="#areas" class="nav__item" data-section="areas">Areas</a></li>
+        <li><a href="#reviews" class="nav__item" data-section="reviews">Reviews</a></li>
       </ul>
-      <span class="nav__cta" aria-disabled="true">Request A Quote</span>
+      <a href="#quote" class="nav__cta">Request A Quote</a>
     </nav>
 
     <div class="hero__inner container">
@@ -92,7 +92,7 @@
       </div>
 
       <!-- Contact form (GoHighLevel embed) -->
-      <div class="hero__form">
+      <div class="hero__form" id="quote">
         <div class="hero__form-scroll">
         <iframe
           src="https://api.leadconnectorhq.com/widget/form/aZnNFnmwokjI14SwKtnE"
@@ -120,7 +120,24 @@
 
   <main>
     <!-- ============ RECENT WORK ============ -->
-    <section class="section work">
+    <!-- ============ SERVICES ============ -->
+    <section class="section services" id="services">
+      <div class="container">
+        <h2 class="section__title"><span class="light">Our</span> Services</h2>
+        <ul class="services__grid">
+          <li class="service"><span class="service__num">01</span><span class="service__name">Roof Replacement</span></li>
+          <li class="service"><span class="service__num">02</span><span class="service__name">Roof Repairs</span></li>
+          <li class="service"><span class="service__num">03</span><span class="service__name">Roof Maintenance</span></li>
+          <li class="service"><span class="service__num">04</span><span class="service__name">Roof Inspections</span></li>
+          <li class="service"><span class="service__num">05</span><span class="service__name">New Construction Roofing</span></li>
+          <li class="service"><span class="service__num">06</span><span class="service__name">Gutter Services</span></li>
+          <li class="service"><span class="service__num">07</span><span class="service__name">Fascia Services</span></li>
+          <li class="service"><span class="service__num">08</span><span class="service__name">Emergency Roofing Services</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section work" id="work">
       <div class="container">
         <h2 class="section__title"><span class="light">Recent</span> Work</h2>
         <div class="work__grid">
@@ -138,7 +155,7 @@
     </section>
 
     <!-- ============ REVIEWS ============ -->
-    <section class="section reviews">
+    <section class="section reviews" id="reviews">
       <div class="container">
         <h2 class="section__title"><span class="light">What homeowners</span> say</h2>
         <div class="reviews__grid">
@@ -154,6 +171,23 @@
         </div>
       </div>
     </section>
+
+    <!-- ============ AREAS ============ -->
+    <section class="section areas" id="areas">
+      <div class="container areas__inner">
+        <div class="areas__text">
+          <h2 class="section__title"><span class="light">Areas</span> We Serve</h2>
+          <p class="areas__region">Southwest Florida</p>
+          <p class="areas__address">715 Northeast 19th Place<br>Cape Coral, Florida 33909</p>
+          <p class="areas__address">(239) 745-9187</p>
+        </div>
+        <div class="areas__map">
+          <iframe title="Vega Roofing Solutions location" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=715+Northeast+19th+Place,+Cape+Coral,+FL+33909&amp;z=11&amp;output=embed"></iframe>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- ============ FOOTER ============ -->
@@ -208,6 +242,18 @@
         });
       });
     }
+    // Highlight nav item for the section in view
+    var navLinks = document.querySelectorAll('.nav__item[data-section]');
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          navLinks.forEach(function (l) { l.classList.toggle('is-active', l.dataset.section === e.target.id); });
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    ['home', 'services', 'reviews', 'areas'].forEach(function (id) {
+      var el = document.getElementById(id); if (el) spy.observe(el);
+    });
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
